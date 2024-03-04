@@ -27,3 +27,17 @@
 
 # Dotenv and similar local-only files
 *.local
+
+
+QUERY
+
+*[_type == "featured"]{
+  ...,
+  restaurant[]->{
+    ...,
+    dishes[]->
+  }
+}
+
+
+skTATD3h7lZW0xO3i2L4mgn57jGRG9ZrJzQsNttP8UxkeWCsddJwOXrZgxCpltGL6qwuwEjtckNnIfxYhhlmE2yxptj1dKt0OVcy3jVrXxjpcbhHtUuyLWIBQYkdE7uu3TTX3yonS81MEh9x3Aujdht2ubUSpmQv9YKlnmzREl01eDGjmAQM
