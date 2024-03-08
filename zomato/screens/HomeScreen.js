@@ -1,16 +1,29 @@
 import { View, Text, SafeAreaView, Image, TextInput } from 'react-native'
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import { useNavigation } from '@react-navigation/native'
 import { useLayoutEffect } from 'react'
 import { Feather, Ionicons } from '@expo/vector-icons'
+import sanityClient from '../sanity'
 
 const HomeScreen = () => {
 const navigation = useNavigation();
+const [featuredCategory, setFeaturedCategory] = useState([])
 
 useLayoutEffect(() =>{
   navigation.setOptions({
     headerShown: false,
   })
+},[])
+
+useEffect(()=>{
+  sanityClient.fetch(`
+  *[_type == "featured]
+  ...,
+  restaurant[]->{
+    ...,
+    dishes[]->
+  }
+  `)
 },[])
 
   return (
