@@ -1,9 +1,11 @@
-import { StyleSheet, Text, View } from 'react-native'
+import { ScrollView, StyleSheet, Text, View } from 'react-native'
 import React, { useEffect, useState } from 'react'
 import { Ionicons } from '@expo/vector-icons'
+import RestaurantCard from './RestaurantCard'
+import { restaruants } from '../_mock/Restaurants'
 
 const FeatureRow = ({title,description,id}) => {
-  const [restaruant,setRestaruant] = useState()
+  // const [restaruant,setRestaruant] = useState()
 
   useEffect(()=>{
 
@@ -18,6 +20,16 @@ const FeatureRow = ({title,description,id}) => {
 
      <Text className="text-xs text-gray-500 px-4">{description}</Text>
 
+      <ScrollView>
+        {
+          restaruants.map((restaruant,index)=>(
+            <RestaurantCard
+            key={index}
+            {...restaruant}
+            />
+          ))
+        }
+      </ScrollView>
     </View>
   )
 }

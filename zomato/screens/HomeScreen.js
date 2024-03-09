@@ -6,7 +6,7 @@ import { Feather, Ionicons } from '@expo/vector-icons'
 import sanityClient from '../sanity'
 import Categories from '../components/Categories'
 import FeatureRow from '../components/FeatureRow'
-import { featuredCategories } from '../_mock/Featured'
+import { featuredCategories } from '../_mock/FeaturedCategory'
 
 const HomeScreen = () => {
 const navigation = useNavigation();
@@ -62,14 +62,14 @@ useEffect(()=>{
         showsVerticalScrollIndicator={false}
       >
          <Categories />
-         {featuredCategories.map((category)=>(
+      {featuredCategories.map((category)=>(
               <FeatureRow 
                 key={category.id}
                 id={category.id}
                 title={category.name}
                 description={category.short_description}
               />
-         ))}
+        ))}
       </ScrollView>
     </SafeAreaView>
   )
