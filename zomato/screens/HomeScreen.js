@@ -1,9 +1,10 @@
-import { View, Text, SafeAreaView, Image, TextInput } from 'react-native'
+import { View, Text, SafeAreaView, Image, TextInput, ScrollView } from 'react-native'
 import React, { useEffect, useState } from 'react'
 import { useNavigation } from '@react-navigation/native'
 import { useLayoutEffect } from 'react'
 import { Feather, Ionicons } from '@expo/vector-icons'
 import sanityClient from '../sanity'
+import Categories from '../components/Categories'
 
 const HomeScreen = () => {
 const navigation = useNavigation();
@@ -16,16 +17,14 @@ useLayoutEffect(() =>{
 },[])
 
 useEffect(()=>{
-  sanityClient.fetch(`
-  *[_type == "featured]
-  ...,
-  restaurant[]->{
-    ...,
-    dishes[]->
-  }
-  `)
+  sanityClient.fetch(`*[_type == "featured"]`).then((data)=>{
+    console.log("====>123",data);
+    setFeaturedCategory(data);
+  })
 },[])
 
+
+// console.log("t",featuredCategory);
   return (
     <SafeAreaView className="bg-white pt-5">
       <View className="flex-row pb-3 items-center mx-3 space-x-2">
@@ -52,6 +51,15 @@ useEffect(()=>{
         </View>
         <Feather name='sliders' size={20} color="#E33342" />
       </View>
+
+      <ScrollView className="bg-gray-100"
+        contentContainerStyle={{
+          paddingBottom: 100,
+        }}
+        showsVerticalScrollIndicator={false}
+      >
+         <Categories />
+      </ScrollView>
     </SafeAreaView>
   )
 }
