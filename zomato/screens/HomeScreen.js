@@ -5,10 +5,12 @@ import { useLayoutEffect } from 'react'
 import { Feather, Ionicons } from '@expo/vector-icons'
 import sanityClient from '../sanity'
 import Categories from '../components/Categories'
+import FeatureRow from '../components/FeatureRow'
+import { featuredCategories } from '../_mock/Featured'
 
 const HomeScreen = () => {
 const navigation = useNavigation();
-const [featuredCategory, setFeaturedCategory] = useState([])
+// const [featuredCategory, setFeaturedCategory] = useState([])
 
 useLayoutEffect(() =>{
   navigation.setOptions({
@@ -16,10 +18,11 @@ useLayoutEffect(() =>{
   })
 },[])
 
+
+
 useEffect(()=>{
   sanityClient.fetch(`*[_type == "featured"]`).then((data)=>{
     console.log("====>123",data);
-    setFeaturedCategory(data);
   })
 },[])
 
@@ -59,6 +62,14 @@ useEffect(()=>{
         showsVerticalScrollIndicator={false}
       >
          <Categories />
+         {featuredCategories.map((category)=>(
+              <FeatureRow 
+                key={category.id}
+                id={category.id}
+                title={category.name}
+                description={category.short_description}
+              />
+         ))}
       </ScrollView>
     </SafeAreaView>
   )
