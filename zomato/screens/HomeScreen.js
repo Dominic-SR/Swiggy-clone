@@ -7,6 +7,7 @@ import sanityClient from '../sanity'
 import Categories from '../components/Categories'
 import FeatureRow from '../components/FeatureRow'
 import { featuredCategories } from '../_mock/FeaturedCategory'
+import GlobalStyles from '../utils/GlobalStyle';
 
 const HomeScreen = () => {
 const navigation = useNavigation();
@@ -29,7 +30,7 @@ useEffect(()=>{
 
 // console.log("t",featuredCategory);
   return (
-    <SafeAreaView className="bg-white pt-5">
+    <SafeAreaView className="bg-white pt-5" style={GlobalStyles.droidSafeArea}>
       <View className="flex-row pb-3 items-center mx-3 space-x-2">
         <Image 
         source={{

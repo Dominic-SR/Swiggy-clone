@@ -20,15 +20,20 @@ const FeatureRow = ({title,description,id}) => {
 
      <Text className="text-xs text-gray-500 px-4">{description}</Text>
 
-      <ScrollView>
-        {
-          restaruants.map((restaruant,index)=>(
+      <ScrollView 
+      horizontal
+      contentContainerStyle={{
+        paddingHorizontal:15,
+      }}
+      showsHorizontalScrollIndicator={false}
+      className="pt-4"
+      >
+        { restaruants.map((restaruant,index)=>(
             <RestaurantCard
             key={index}
             {...restaruant}
             />
-          ))
-        }
+          ))}
       </ScrollView>
     </View>
   )
