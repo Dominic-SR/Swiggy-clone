@@ -3,7 +3,7 @@ import React, { useState } from 'react';
 import Currency from 'react-currency-formatter';
 import {AntDesign} from '@expo/vector-icons';
 import {useDispatch, useSelector} from 'react-redux';
-import { addtoBasket, selectedBasketItemsWithId } from '../Slices/BasketSlice';
+import { addtoBasket, selectedBasketItemsWithId,removeFromBasket } from '../Slices/BasketSlice';
 
 const DishShow = ({
     id,
@@ -24,9 +24,8 @@ const addItemsToBasket = () =>{
 }
 
 const removeItemFromBasket = () =>{
- console.log("RRRR",id, !items.length);
-    // if(!items.length > 0) return;
-    dispatch(removeItemFromBasket({id}))
+    if(!items.length > 0) return;
+    dispatch(removeFromBasket({id}))
 }
 
 return (

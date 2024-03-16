@@ -16,7 +16,7 @@ export const dishes = [
 
     },
     {
-        id:1,
+        id:3,
         name:"Chicken Fry",
         short_description:"Fried Chicken.",
         price:300,

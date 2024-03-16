@@ -3,8 +3,9 @@ import React, { useEffect, useLayoutEffect } from 'react';
 import { useNavigation,useRoute } from '@react-navigation/native';
 import { setRestaurant } from '../Slices/RestaurantSlice';
 import { useDispatch } from 'react-redux';
-import { Ionicons } from '@expo/vector-icons';
+import { Feather, Ionicons } from '@expo/vector-icons';
 import DishShow from '../components/DishShow';
+import Basket from '../components/Basket';
 
 const RestaurantScreen = () => {
 const navigation = useNavigation();
@@ -44,6 +45,8 @@ const dispatch = useDispatch()
   })
 
   return (
+    <>
+    <Basket />
     <ScrollView>
       <View>
         <Image 
@@ -77,6 +80,10 @@ const dispatch = useDispatch()
         </View>
             <TouchableOpacity className="flex-row items-center space-x-2 p-4 border-y border-gray-300">
               <Ionicons name ="help-circle" size={20} color="gray" />
+              <Text className="pl-2 flex-1 text-md text-xl">
+                Have any food alergy ?
+              </Text>
+              <Feather name="chevron-right" size={20} color={"#E33342"} />
             </TouchableOpacity>
       </View>
 
@@ -90,6 +97,7 @@ const dispatch = useDispatch()
           }
       </View> 
     </ScrollView>
+    </>
   )
 }
 

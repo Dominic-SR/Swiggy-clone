@@ -9,27 +9,26 @@ export const basketSlice = createSlice({
     initialState,
     reducers:{ 
         addtoBasket:(state, action)=>{
-            console.log("222222");
             state.items =[...state.items, action.payload]
         },
         removeFromBasket:(state, action)=>{
-            console.log("11111",state);
-            // const index = state.items.findIndex(
-            //   (item) => item.id === action.payload.id
-            // )
+            const index = state.items.findIndex(
+              (item) => item.id === action.payload.id
+            )
             
-            // let newBasket = [...state.items];
+            let newBasket = [...state.items];
 
-            // if(index >= 0){
-            //     newBasket.splice(index,1)
-            // }
-            // state.items = newBasket;
+            if(index >= 0){
+                newBasket.splice(index,1)
+            }
+            state.items = newBasket;
 
         },
     }
 })
 
 export const {addtoBasket, removeFromBasket} = basketSlice.actions;
+
 
 export const selectBasketItems = (state) => state.basket.items;
 
