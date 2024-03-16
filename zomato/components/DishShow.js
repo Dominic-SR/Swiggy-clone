@@ -14,13 +14,18 @@ const DishShow = ({
 }) => {
 
 const [isPressed, setIsPressed] = useState(false);
-const items = useSelector((state)=>selectedBasketItemsWithId(state, id));
+
+const items = useSelector((state)=> selectedBasketItemsWithId(state, id));
+
 const dispatch = useDispatch();
+
 const addItemsToBasket = () =>{
     dispatch(addtoBasket({id,name,short_description,price,image}))
 }
+
 const removeItemFromBasket = () =>{
-    if(!items.length > 0) return;
+ console.log("RRRR",id, !items.length);
+    // if(!items.length > 0) return;
     dispatch(removeItemFromBasket({id}))
 }
 
@@ -55,20 +60,23 @@ return (
         isPressed && (
             <View className="bg-white px-4">
                 <View className="flex-row items-center space-x-2 pb-3">
-                    <TouchableOpacity>
+                    <TouchableOpacity
+                    onPress={removeItemFromBasket}
+                    disabled={!items.length}
+                    >
                         <AntDesign 
                         name='minuscircle'
-                        colors={items.length > 0 ? "E33342" : "gray"}
+                        color={items.length > 0 ? "#E33342" : "gray"}
                         size={30}
                         />
                     </TouchableOpacity>
                         
                     <Text>{items.length}</Text>
 
-                    <TouchableOpacity>
+                    <TouchableOpacity onPress={addItemsToBasket}>
                         <AntDesign 
                         name='pluscircle'
-                        colors="E33342"
+                        color="#E33342"
                         size={30}
                         />  
                     </TouchableOpacity>
