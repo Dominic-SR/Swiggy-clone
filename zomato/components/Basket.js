@@ -9,7 +9,6 @@ const Basket = () => {
   const navigation = useNavigation();
   const items  = useSelector(selectBasketItems);
   const basketTotal = useSelector(selectBasketTotal);
-  
    if(items.length === 0) return null;
 
     return (
