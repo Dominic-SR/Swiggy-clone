@@ -1,5 +1,5 @@
 import { View, Text, SafeAreaView } from 'react-native'
-import React from 'react'
+import React, { useEffect } from 'react'
 import * as Animatable from "react-native-animatable";
 // import * as Progress from "react-native-progress";
 import { useNavigation } from '@react-navigation/native';
@@ -7,6 +7,13 @@ import GlobalStyles from '../utils/GlobalStyle';
 
 
 const PreparingOrderScreen = () => {
+  const navigation = useNavigation();
+  useEffect(()=>{
+    setTimeout(()=>{
+        navigation.navigate("Delivery")
+    },5000)
+  },[])
+
   return (
     <SafeAreaView className="bg-[#ee5d69] flex-1 justify-center items-center" style={GlobalStyles.droidSafeArea}>
       <Animatable.Image 
