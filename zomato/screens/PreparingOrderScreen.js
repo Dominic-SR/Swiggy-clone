@@ -1,7 +1,7 @@
 import { View, Text, SafeAreaView } from 'react-native'
 import React, { useEffect } from 'react'
 import * as Animatable from "react-native-animatable";
-// import * as Progress from "react-native-progress";
+import * as Progress from "react-native-progress";
 import { useNavigation } from '@react-navigation/native';
 import GlobalStyles from '../utils/GlobalStyle';
 
