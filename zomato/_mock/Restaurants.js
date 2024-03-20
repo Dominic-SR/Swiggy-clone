@@ -8,7 +8,7 @@ export const restaruants = [
         rating:4,
         address: "Pai Layout, Mahadevapura, Bengaluru",
         short_description:"served along side North Indian staples in a casual ambiance.",
-        lang: 12.995809869772419, 
+        long:12.995809869772419, 
         lat:77.66695148418367,
         dishes: dishes
 
@@ -20,7 +20,7 @@ export const restaruants = [
         rating:4,
         address: "Block East, Jayanagar, Bengaluru",
         short_description:"Classic, long-running fast-food chain known for its burgers & fries.",
-        lang: 12.928527102219746,  
+        long:12.928527102219746,  
         lat:77.5859377376868,
         dishes: dishes
 
@@ -32,7 +32,7 @@ export const restaruants = [
         rating:4,
         address: "Pai Layout, Mahadevapura, Bengaluru",
         short_description:"Buffet specials are available from this nationwide chain known for its barbecued meat & veggies.",
-        lang: 13.023191166245304,  
+        long:13.023191166245304,  
         lat:77.64043909295438,
         dishes: dishes
 

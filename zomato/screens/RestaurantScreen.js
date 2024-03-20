@@ -23,6 +23,8 @@ const dispatch = useDispatch()
     lat     
   }} = useRoute()
 
+  console.log("EEEEE",lat,long);
+
   useEffect(()=>{
     dispatch(setRestaurant({
       id,

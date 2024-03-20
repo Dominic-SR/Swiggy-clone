@@ -24,6 +24,8 @@ const BasketScreen = () => {
       },{})
       setGroupedItemInBasket(groupedItems)
   },[items])
+  
+ 
 
   return (
     <SafeAreaView className="flex-1 bg-white" style={GlobalStyles.droidSafeArea}>

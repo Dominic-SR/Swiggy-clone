@@ -12,7 +12,9 @@ const DeliveryScreen = () => {
   const navigation = useNavigation();
   const restaurant = useSelector(selectRestaurant)
 
-  console.log("111111",restaurant.name);
+  console.log("111111",restaurant);
+  console.log("111111-Lat",restaurant.lat);
+  console.log("111111-Long",restaurant.long);
   return (
     <View className="bg-[#E33342] flex-1" >
       <SafeAreaView className="z-50" style={GlobalStyles.droidSafeArea}>
@@ -45,20 +47,20 @@ const DeliveryScreen = () => {
       </SafeAreaView>
 
       <MapView 
-      // initialRegion={{
-      //   latitude:restaurant.lat,
-      //   longitude:restaurant.long,
-      //   latitudeDelta:0.005,
-      //   longitudeDelta:0.005,
-      // }}
+      initialRegion={{
+        latitude:restaurant.lat,
+        longitude:restaurant.long,
+        latitudeDelta:0.005,
+        longitudeDelta:0.005,
+      }}
       className="flex-1 -mt-10 z-0"
       mapType='mutedStandard'
       >
         <Marker
-          // coordinate={{
-          //   latitude:restaurant.lat,
-          //   longitude:restaurant.long,
-          // }}
+          coordinate={{
+            latitude:restaurant.lat,
+            longitude:restaurant.long,
+          }}
           title={restaurant.name}
           description={restaurant.short_description}
           identifier='origin'
