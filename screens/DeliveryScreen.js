@@ -12,9 +12,6 @@ const DeliveryScreen = () => {
   const navigation = useNavigation();
   const restaurant = useSelector(selectRestaurant)
 
-  console.log("111111",restaurant);
-  console.log("111111-Lat",restaurant.lat);
-  console.log("111111-Long",restaurant.long);
   return (
     <View className="bg-[#E33342] flex-1" >
       <SafeAreaView className="z-50" style={GlobalStyles.droidSafeArea}>
@@ -53,7 +50,7 @@ const DeliveryScreen = () => {
         latitudeDelta:0.005,
         longitudeDelta:0.005,
       }}
-      className="flex-1 -mt-10 z-0"
+      className="flex-1 -mt-60 z-0"
       mapType='mutedStandard'
       >
         <Marker
@@ -67,6 +64,17 @@ const DeliveryScreen = () => {
           pinColor='#E33342'
         />
       </MapView>
+      <SafeAreaView className="bg-white flex-row items-center space-x-5 h-28">
+          <Image 
+            source={require("../assets/delivery.png")}
+            className="h-12 w-12 bg-gray-300 p-4 rounded-full ml-5"
+          />
+          <View className="flex-1">
+            <Text className="text-lg">Raj Kumar</Text>
+            <Text className="text-gray-400">Call</Text>
+          </View>
+          <Text className="text-[#E33342] text-lg mr-5">Call</Text>
+      </SafeAreaView>
     </View>
   )
 }

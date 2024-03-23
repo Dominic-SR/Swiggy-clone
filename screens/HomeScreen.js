@@ -21,13 +21,6 @@ useLayoutEffect(() =>{
 
 
 
-useEffect(()=>{
-  sanityClient.fetch(`*[_type == "featured"]`).then((data)=>{
-    console.log("====>123",data);
-  })
-},[])
-
-
 // console.log("t",featuredCategory);
   return (
     <SafeAreaView className="bg-white pt-5" style={GlobalStyles.droidSafeArea}>
